@@ -1,0 +1,13 @@
+.layer-vue-min {
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--layer-min-color);
+  }
+
+  &:hover {
+    svg {
+      fill: var(--layer-min-color-hover);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "allowJs": false,
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+    "noUnusedLocals": false,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": false,
+    "lib": ["ESNext", "DOM"],
+    "types": ["vitest/globals", "vite/client"]
+  },
+  "include": ["packages", "auto-imports.d.ts", "package.json", "packages/utils", "vite-env.d.ts"],
+  "exclude": ["node_modules", "types.d.ts"]
+}

@@ -1,0 +1,14 @@
+:root {
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #bc32fc,
+    #bc32fc7c 30%,
+    #ff8d1a7c 70%,
+    #ff8d1a
+  );
+  --vp-home-hero-image-filter: blur(40px);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(-45deg, #bc32fc, #ff8d1a);
+}
+
+@import './demo.scss';

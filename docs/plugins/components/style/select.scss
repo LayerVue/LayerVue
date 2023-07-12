@@ -1,0 +1,26 @@
+select {
+  font-size: 14px;
+  color: var(--vp-c-text);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  background-color: var(--vp-c-bg);
+  padding: 4px 8px;
+  cursor: pointer;
+  position: relative;
+}
+
+select:hover {
+  border-color: var(--vp-c-green);
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* 禁用状态样式 */
+select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+

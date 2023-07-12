@@ -1,0 +1,65 @@
+input[type='text'],
+input[type='search'],
+input[type='number'] {
+  font-size: 0.9rem;
+  padding: 0.5em 1em 0.4em;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  outline: none;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text);
+  min-width: 20rem;
+  margin: 0.5rem 0;
+}
+
+input[type='number'] {
+  min-width: 15rem;
+  outline: none;
+}
+
+input:focus {
+  border: 1px solid var(--vp-c-border);
+}
+
+input:disabled {
+  cursor: no-drop;
+  background: var(--vp-button-alt-bg);
+}
+
+/* 隐藏默认样式 */
+input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: none;
+}
+
+/* 自定义勾选样式 */
+input[type='checkbox']::before {
+  content: '✔';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 3px;
+  margin-right: 5px;
+  line-height: 16px;
+  text-align: center;
+  color: transparent;
+}
+
+/* 勾选状态样式 */
+input[type='checkbox']:checked::before {
+  color: var(--vp-c-green);
+  border-color: var(--vp-c-green);
+}
+
+/* 禁用状态样式 */
+input[type='checkbox']:disabled::before {
+  background-color: #ccc;
+}
+
+/* 悬停状态样式 */
+input[type='checkbox']:hover::before {
+  border-color: var(--vp-c-green);
+}

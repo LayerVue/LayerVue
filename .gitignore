@@ -1,0 +1,11 @@
+node_modules
+**/pnpm-lock.yaml
+**/.vitepress/cache
+**/.yalc
+**/yalc.lock
+dist
+auto-imports.d.ts
+/tsconfig.tsbuildinfo
+es
+lib
+/types

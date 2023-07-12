@@ -1,0 +1,103 @@
+{
+  "name": "layer-vue",
+  "version": "2.0.0-alpha.0",
+  "description": "Embrace Vue 3.0, Free Resize Move, and Different from Traditional Modal",
+  "license": "MIT",
+  "type": "module",
+  "logo": "/icon.png",
+  "scripts": {
+    "examples:dev": "concurrently \"vite\" \"npm run witch:css\"",
+    "docs:dev": "concurrently \"npm run witch:css\" \"cd docs && rimraf .vitepress/cache/deps && npm run docs:dev\"",
+    "docs:build": "cd docs && npm run docs:build",
+    "docs:preview": "cd docs && npm run docs:preview",
+    "build": "npm run build:css && vue-tsc --noEmit && vite build && vite build --mode full && npm run build:dts && npm run build:css",
+    "build:dts": "node ./scripts/dts.js && rimraf ./types && vue-tsc --declaration --emitDeclarationOnly && node ./scripts/dts.js",
+    "build:full": "vite build --mode full",
+    "build:css": "node ./scripts/css.js force",
+    "yalc:reload": "npm run yalc:remove && rimraf ./node_modules && pnpm i && npm run yalc:add",
+    "yalc:add": "yalc remove layer-vue && yalc publish && yalc add layer-vue",
+    "yalc:push": "yalc push",
+    "yalc:remove": "yalc remove layer-vue",
+    "lint": "eslint packages --ext .ts,.vue",
+    "witch:css": "nodemon -e scss ./scripts/css.js force"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "es",
+    "types",
+    "types.d.ts"
+  ],
+  "main": "lib/index.cjs",
+  "module": "es/index.mjs",
+  "types": "types/components/index.d.ts",
+  "unpkg": "dist/index.js",
+  "jsdelivr": "dist/index.js",
+  "umd": "dist/index.umd.cjs",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "require": "./lib/index.cjs",
+      "import": "./es/index.mjs"
+    },
+    "./es": "./es/index.mjs",
+    "./lib": "./lib/index.cjs",
+    "./es/*.mjs": "./es/*.mjs",
+    "./es/*": "./es/*.mjs",
+    "./lib/*.cjs": "./lib/*.cjs",
+    "./lib/*": "./lib/*.cjs",
+    "./package.json": "./package.json",
+    "./*": "./*"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "vue",
+    "vue3",
+    "vue3.0",
+    "vue3.x",
+    "components",
+    "layer",
+    "layer-vue",
+    "vite"
+  ],
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.7",
+    "@types/markdown-it": "^12.2.3",
+    "@types/markdown-it-container": "^2.0.5",
+    "@types/node": "^20.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/test-utils": "^2.4.0",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.44.0",
+    "eslint-config-standard-with-typescript": "^36.0.0",
+    "eslint-plugin-vue": "^9.15.1",
+    "fast-glob": "^3.3.0",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.8.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-container": "^3.0.0",
+    "nodemon": "^3.0.1",
+    "rimraf": "^5.0.1",
+    "sass": "^1.63.6",
+    "typescript": "^5.1.6",
+    "unplugin-auto-import": "^0.16.6",
+    "unplugin-vue-components": "^0.25.1",
+    "vite": "~4.3.9",
+    "vite-plugin-eslint": "^1.8.1",
+    "vitepress": "1.0.0-beta.5",
+    "vitest": "^0.32.4",
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.8.4",
+    "yalc": "1.0.0-pre.53"
+  },
+  "author": "finalsummer",
+  "homepage": "https://642661520.github.io/layer-vue"
+}
