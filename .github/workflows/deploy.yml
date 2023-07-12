@@ -14,26 +14,41 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 6
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: pnpm
-      - run: |
-          pnpm install --frozen-lockfile
-          cd docs
-          pnpm install --frozen-lockfile
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - name: Install docs dependencies
+        run: |
+          cd ./docs
+          pnpm install
+
       - name: Build
         run: pnpm run docs:build
+
       - uses: actions/configure-pages@v2
+
       - uses: actions/upload-pages-artifact@v1
         with:
           path: docs/.vitepress/dist
-      - name: Deploy
+
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
