@@ -28,17 +28,19 @@ jobs:
         with:
           version: 7
           run_install: false
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Install docs dependencies
+        run: |
+          cd ./docs
+          pnpm install --no-frozen-lockfile
 
       - name: Get pnpm store directory
         id: pnpm-cache
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Install docs dependencies
-        run: |
-          cd ./docs
-          pnpm install
 
       - name: Build
         run: pnpm run docs:build
