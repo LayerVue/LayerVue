@@ -2,11 +2,11 @@ import { defineConfig } from 'vitepress';
 // https://vitepress.dev/reference/site-config
 import { resolve } from 'path';
 import { initSidebar, initNav } from '../utils/index';
-import { homepage, name, description, logo } from '../../package.json';
+import { homepage, description, logo } from '../../package.json';
 import markdownItCodeView from '../plugins/demoPreview';
 const sidebar = initSidebar();
 export default defineConfig({
-  title: name,
+  title: 'LayerVue',
   description,
   themeConfig: {
     logo,
@@ -25,7 +25,7 @@ export default defineConfig({
     lastUpdatedText: 'Updated Date',
   },
   head: [['link', { rel: 'icon', href: logo }]],
-  base: `/${name}/`,
+  base: `/LayerVue/`,
   vite: {
     plugins: [],
     resolve: {
@@ -42,7 +42,7 @@ export default defineConfig({
     config(md) {
       md.use(markdownItCodeView, {
         componentName: 'CodeView',
-        glob:['./components/**/*.vue', './demos/**/*.vue']
+        glob: ['./components/**/*.vue', './demos/**/*.vue'],
       });
     },
   },

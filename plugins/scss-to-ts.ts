@@ -2,7 +2,6 @@ import fs from 'fs';
 import fg from 'fast-glob';
 import { FilterPattern, Plugin, ResolvedConfig, createFilter } from 'vite';
 import { compile } from 'sass';
-import { cwd } from 'process';
 export function vitePluginScss2Ts(options?: {
   root?: string;
   include?: FilterPattern | undefined;

@@ -1,5 +1,5 @@
 {
-  "name": "layer-vue docs",
+  "name": "LayerVue",
   "description": "layer-vue docs",
   "keywords": [],
   "author": "finalsummer",
@@ -11,5 +11,20 @@
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
     "docs:preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "@types/markdown-it-container": "^2.0.5",
+    "@types/node": "^20.3.3",
+    "fast-glob": "^3.3.0",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.8.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-container": "^3.0.0",
+    "sass": "^1.63.6",
+    "typescript": "^5.1.6",
+    "vitepress": "1.0.0-beta.5",
+    "vue": "^3.3.4",
+    "vue-tsc": "^1.8.4"
   }
 }
