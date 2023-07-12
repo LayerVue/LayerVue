@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watch, nextTick } from 'vue';
 import type { Ref } from 'vue';
-import { LayerVue, LayerVueInst, useLayer } from 'layer-vue';
+import { LayerVue, LayerVueInst } from 'layer-vue';
 const visible = ref(false);
 const container: Ref<HTMLElement | null> = ref(null);
 const appendTo = ref('body');
@@ -32,25 +32,6 @@ watch(
     });
   }
 );
-useLayer().open({
-  theme: 'dark',
-  shadeClose: true,
-  setTop: true,
-  shade: true,
-  themeConfig: {
-    title: {
-      height: '30px',
-      color: 'red',
-      background: 'blue',
-      borderBottom: '1px solid #ccc',
-    },
-    close: {
-      backgroundHover: 'red',
-    }
-  },
-  content: 'appendTo:body',
-  appendTo: 'body',
-});
 </script>
 <style lang="scss">
 .layer-demo-container {

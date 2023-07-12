@@ -5,20 +5,21 @@
 </template>
 <script setup lang="ts">
 import { ref, onBeforeUnmount } from 'vue';
-import { useLayer } from 'layer-vue';
-const layer = useLayer();
+import { createLayer } from 'layer-vue';
 const layerDemo: any = ref(null);
 
 const switchLayer = () => {
   if (layerDemo.value) {
     layerDemo.value.close?.();
   } else {
-    layerDemo.value = layer.open({
-      title: 'LayerVue',
-      content: 'Hello LayerVue!',
-      destroyOnClose: true,
-      cancel() {
-        layerDemo.value = null;
+    layerDemo.value = createLayer({
+      props: {
+        title: 'LayerVue',
+        content: 'Hello LayerVue!',
+        destroyOnClose: true,
+        cancel() {
+          layerDemo.value = null;
+        },
       },
     });
   }
