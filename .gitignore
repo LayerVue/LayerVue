@@ -1,5 +1,4 @@
 node_modules
-**/pnpm-lock.yaml
 **/.vitepress/cache
 **/.yalc
 **/yalc.lock
